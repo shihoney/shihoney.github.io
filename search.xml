@@ -3,7 +3,12 @@
   <entry>
     <title>markdown学习</title>
     <url>/2020/04/04/markdown%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World!"></a>Hello World!</h1><h2 id="标题使用"><a href="#标题使用" class="headerlink" title="标题使用"></a>标题使用</h2><h3 id="标题有两种表现方式"><a href="#标题有两种表现方式" class="headerlink" title="标题有两种表现方式"></a>标题有两种表现方式</h3><h3 id="1-使用‘-’和‘-’分别表示一级和二级标题（只能表示两种标题）"><a href="#1-使用‘-’和‘-’分别表示一级和二级标题（只能表示两种标题）" class="headerlink" title="1.使用‘=’和‘-’分别表示一级和二级标题（只能表示两种标题）"></a>1.使用‘=’和‘-’分别表示一级和二级标题（只能表示两种标题）</h3><p>例如：</p>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><blockquote>
+<p>Markdown 是一种轻量级标记语言，具有纯文本格式语法。</p>
+</blockquote>
+<p>Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。世界上最流行的博客平台WordPress和大型CMS如Joomla、Drupal都能很好的支持Markdown。完全采用Markdown编辑器的博客平台有Ghost和Typecho。<br>用于编写说明文档，并且以“README.md”的文件名保存在软件的目录下面。<br>除此之外，由于我们有了RStudio这样的神级编辑器，我们还可以快速将Markdown转化为演讲PPT、Word产品文档、LaTex论文甚至是用非常少量的代码完成最小可用原型。在数据科学领域，Markdown已经广泛使用，极大地推进了动态可重复性研究的历史进程。</p>
+<p>相信我；一旦你学会使用 Markdown，每一项写作任务在某种程度上都会比以前更容易、更好。让我们开始吧。<a id="more"></a></p>
+<h2 id="标题使用"><a href="#标题使用" class="headerlink" title="标题使用"></a>标题使用</h2><h3 id="标题有两种表现方式"><a href="#标题有两种表现方式" class="headerlink" title="标题有两种表现方式"></a>标题有两种表现方式</h3><h3 id="1-使用‘-’和‘-’分别表示一级和二级标题（只能表示两种标题）"><a href="#1-使用‘-’和‘-’分别表示一级和二级标题（只能表示两种标题）" class="headerlink" title="1.使用‘=’和‘-’分别表示一级和二级标题（只能表示两种标题）"></a>1.使用‘=’和‘-’分别表示一级和二级标题（只能表示两种标题）</h3><p>例如：</p>
 <p> 一级标题</p>
 <p> =======</p>
 <p> 二级标题</p>
