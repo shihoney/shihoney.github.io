@@ -114,7 +114,7 @@
 <hr>
 <h2 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BirthDate</span> </span>&#123;    </span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">int</span> day;    </span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">int</span> month;    </span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">int</span> year;        </span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="title">BirthDate</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> m, <span class="keyword">int</span> y)</span> </span>&#123;    </span><br><span class="line">           day = d;     </span><br><span class="line">           month = m;     </span><br><span class="line">           year = y;    </span><br><span class="line">       &#125;    </span><br><span class="line">       省略get,set方法………    </span><br><span class="line">   &#125;    </span><br><span class="line">       </span><br><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;    </span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;    </span><br><span class="line">            <span class="keyword">int</span> date = <span class="number">9</span>;    </span><br><span class="line">            Test test = <span class="keyword">new</span> Test();          </span><br><span class="line">            test.change(date);     </span><br><span class="line">            BirthDate d1= <span class="keyword">new</span> BirthDate(<span class="number">7</span>,<span class="number">7</span>,<span class="number">1970</span>);           </span><br><span class="line">       &#125;      </span><br><span class="line">       </span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change1</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;    </span><br><span class="line">           i = <span class="number">1234</span>;    </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/04/07/java-memory/java_memory.png" alt></p>
+<p><img src="java-memory/java_memory.png" alt=""></p>
 <p>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</p>
 <p>main方法开始执行：int date = 9;<br>date局部变量，基础类型，引用和值都存在栈中。<br>Test test = new Test();<br>test为对象引用，存在栈中，对象(new Test())存在堆中。<br>test.change(date);<br>调用change(int i)方法，i为局部变量，引用和值存在栈中。当方法change执行完成后，i就会从栈中消失。<br>BirthDate d1= new BirthDate(7,7,1970);<br>调用BIrthDate类的构造函数生成对象。<br>d1为对象引用，存在栈中；<br>对象(new BirthDate())存在堆中；<br>其中d,m,y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中；<br>day,month,year为BirthDate对象的的成员变量，它们存储在堆中存储的new BirthDate()对象里面；<br>当BirthDate构造方法执行完之后，d,m,y将从栈中消失。<br>main方法执行完之后。<br>date变量，test，d1引用将从栈中消失；<br>new Test(),new BirthDate()将等待垃圾回收器进行回收。</p>
 ]]></content>
@@ -219,15 +219,15 @@
 <p>[链接名称](链接地址) 或者 &lt;链接地址&gt;</p>
 <p>这是一个链接 [test](<a href="https://www.test.com" target="_blank" rel="noopener">https://www.test.com</a> )</p>
 <p>&lt; <a href="https://www.runoob.com" target="_blank" rel="noopener">https://www.runoob.com</a> &gt;</p>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="/2020/04/04/markdown%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E7%89%87.png" alt></p>
-<p><img src="/2020/04/04/markdown%E5%AD%A6%E4%B9%A0/img%E6%A0%87%E7%AD%BE.png" alt></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="markdown%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E7%89%87.png" alt=""></p>
+<p><img src="markdown%E5%AD%A6%E4%B9%A0/img%E6%A0%87%E7%AD%BE.png" alt=""></p>
 <h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
 <p>|  表头   | 表头  |<br>|  —-  | —-  |<br>| 单元格  | 单元格 |<br>| 单元格  | 单元格 |</p>
 <h3 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h3><p>我们可以设置表格的对齐方式：</p>
 <p>-: 设置内容和标题栏居右对齐。</p>
 <p>:- 设置内容和标题栏居左对齐。</p>
 <p>:-: 设置内容和标题栏居中对齐。</p>
-<p><img src="/2020/04/04/markdown%E5%AD%A6%E4%B9%A0/%E5%AF%B9%E9%BD%90.png" alt></p>
+<p><img src="markdown%E5%AD%A6%E4%B9%A0/%E5%AF%B9%E9%BD%90.png" alt=""></p>
 ]]></content>
       <categories>
         <category>markdown</category>
