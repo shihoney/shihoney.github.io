@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>About Me</title>
-    <url>/2020/04/04/about/</url>
-    <content><![CDATA[<blockquote>
-<p>A Coder, live in BJ, China.</p>
-</blockquote>
-<p>姓名：石帮玉<br>现居：北京<br>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=2427075279&site=qq&menu=yes" target="_blank" rel="noopener">2427075279</a><br>微信: shi2427075279</p>
-<a id="more"></a>]]></content>
+    <title>linux_02</title>
+    <url>/2020/04/23/linux-02/</url>
+    <content><![CDATA[<h3 id="2-每日一条linux命令之cd"><a href="#2-每日一条linux命令之cd" class="headerlink" title="(2)每日一条linux命令之cd"></a>(2)每日一条linux命令之<strong>cd</strong></h3><p>cd命令是linux最基本的命令，其他的命令语句要进行操作，都是建立在使用 cd 命令上的。</p>
+<p>所以，学习Linux 常用命令，首先就要学好 cd 命令的使用方法技巧。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>cd [目录名]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>切换目录</p>
+<h4 id="常用范例"><a href="#常用范例" class="headerlink" title="常用范例"></a>常用范例</h4><p>进入系统根目录: cd /  或者  cd ../.. //</p>
+<p>查看当前目录路径: pwd</p>
+<p>返回上级目录: cd ..</p>
+<p>进入当前用户的主目录: cd 或者 cd ~</p>
+<p>跳转到指定目录: cd /opt/publish</p>
+<p>返回进入此目录之前所在的目录: cd -</p>
+<p>把上个命令的参数作为cd参数使用: cd !$</p>
+<p>例: cp something /usr/local/xxx  —&gt;  cd !$  直接就进入了xxx目录。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux_01</title>
+    <url>/2020/04/22/linux-01/</url>
+    <content><![CDATA[<h3 id="（1）每日一条linux命令之ls"><a href="#（1）每日一条linux命令之ls" class="headerlink" title="（1）每日一条linux命令之ls"></a>（1）每日一条linux命令之<strong>ls</strong></h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可以查看文件权限和文件的信息等等。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>ls [选项] [目录名]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>打印出目标目录下的所有的子目录及问件</p>
+<h4 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h4><p>-a  列出目标目录下的所有文件夹和文件，包括.开头的隐藏文件</p>
+<p>-A  同-a，但不列出隐藏文件</p>
+<p>-g  类似 -l,但不列出所有者</p>
+<p>-h  以容易理解的格式列出文件大小 (例如 1K 234M 2G)</p>
+<p>–si 类似 -h,但文件大小取 1000 的次方而不是 1024</p>
+<p>-H  使用命令列中的符号链接指示的真正目的地</p>
+<p>-l  除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来</p>
+<p>-r  依相反次序排列</p>
+<p>-R  同时列出所有子目录层</p>
+<p>-t  以文件修ls改时间排序</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -138,27 +173,15 @@
       </tags>
   </entry>
   <entry>
-    <title>linux_01</title>
-    <url>/2020/04/22/linux-01/</url>
-    <content><![CDATA[<h3 id="（1）每日一条linux命令之ls"><a href="#（1）每日一条linux命令之ls" class="headerlink" title="（1）每日一条linux命令之ls"></a>（1）每日一条linux命令之<strong>ls</strong></h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可以查看文件权限和文件的信息等等。<a id="more"></a></p>
-<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>ls [选项] [目录名]</p>
-<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>打印出目标目录下的所有的子目录及问件</p>
-<h4 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h4><p>-a  列出目标目录下的所有文件夹和文件，包括.开头的隐藏文件</p>
-<p>-A  同-a，但不列出隐藏文件</p>
-<p>-g  类似 -l,但不列出所有者</p>
-<p>-h  以容易理解的格式列出文件大小 (例如 1K 234M 2G)</p>
-<p>–si 类似 -h,但文件大小取 1000 的次方而不是 1024</p>
-<p>-H  使用命令列中的符号链接指示的真正目的地</p>
-<p>-l  除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来</p>
-<p>-r  依相反次序排列</p>
-<p>-R  同时列出所有子目录层</p>
-<p>-t  以文件修ls改时间排序</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
+    <title>About Me</title>
+    <url>/2020/04/04/about/</url>
+    <content><![CDATA[<blockquote>
+<p>A Coder, live in BJ, China.</p>
+</blockquote>
+<p>姓名：石帮玉<br>现居：北京<br>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=2427075279&site=qq&menu=yes" target="_blank" rel="noopener">2427075279</a><br>微信: shi2427075279</p>
+<a id="more"></a>]]></content>
       <tags>
-        <tag>linux</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
