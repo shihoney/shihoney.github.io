@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>linux_03</title>
+    <title>pwd命令</title>
     <url>/2020/04/24/linux-03/</url>
     <content><![CDATA[<h3 id="每日一条linux命令之pwd"><a href="#每日一条linux命令之pwd" class="headerlink" title="每日一条linux命令之pwd"></a>每日一条linux命令之<strong>pwd</strong></h3><p>pwd命令用来查看当前工作目录的完整路径。每当在终端进行操作时，你都会有一个当前工作目录。在不确定当前</p>
 <p>位置时，就可以使用‘pwd’命令来判定当前目录在文件系统内的确切位置。<a id="more"></a></p>
@@ -19,7 +19,7 @@
       </tags>
   </entry>
   <entry>
-    <title>linux_02</title>
+    <title>cd命令</title>
     <url>/2020/04/23/linux-02/</url>
     <content><![CDATA[<h3 id="每日一条linux命令之cd"><a href="#每日一条linux命令之cd" class="headerlink" title="每日一条linux命令之cd"></a>每日一条linux命令之<strong>cd</strong></h3><p>cd命令是linux最基本的命令，其他的命令语句要进行操作，都是建立在使用 cd 命令上的。</p>
 <p>所以，学习Linux 常用命令，首先就要学好 cd 命令的使用方法技巧。<a id="more"></a></p>
@@ -42,7 +42,7 @@
       </tags>
   </entry>
   <entry>
-    <title>linux_01</title>
+    <title>ls 命令</title>
     <url>/2020/04/22/linux-01/</url>
     <content><![CDATA[<h3 id="每日一条linux命令之ls"><a href="#每日一条linux命令之ls" class="headerlink" title="每日一条linux命令之ls"></a>每日一条linux命令之<strong>ls</strong></h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可</p>
 <p>以查看文件权限和文件的信息等等。<a id="more"></a></p>
