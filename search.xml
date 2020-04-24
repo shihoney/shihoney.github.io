@@ -3,7 +3,7 @@
   <entry>
     <title>linux_03</title>
     <url>/2020/04/24/linux-03/</url>
-    <content><![CDATA[<h4 id="每日一条linux命令之pwd"><a href="#每日一条linux命令之pwd" class="headerlink" title="每日一条linux命令之pwd"></a>每日一条linux命令之<strong>pwd</strong></h4><p>pwd命令用来查看当前工作目录的完整路径。每当在终端进行操作时，你都会有一个当前工作目录。在不确定当前</p>
+    <content><![CDATA[<h3 id="每日一条linux命令之pwd"><a href="#每日一条linux命令之pwd" class="headerlink" title="每日一条linux命令之pwd"></a>每日一条linux命令之<strong>pwd</strong></h3><p>pwd命令用来查看当前工作目录的完整路径。每当在终端进行操作时，你都会有一个当前工作目录。在不确定当前</p>
 <p>位置时，就可以使用‘pwd’命令来判定当前目录在文件系统内的确切位置。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>pwd [选项]</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>查看”当前工作目录“的完整路径</p>
@@ -44,7 +44,8 @@
   <entry>
     <title>linux_01</title>
     <url>/2020/04/22/linux-01/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之ls"><a href="#每日一条linux命令之ls" class="headerlink" title="每日一条linux命令之ls"></a>每日一条linux命令之<strong>ls</strong></h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可以查看文件权限和文件的信息等等。<a id="more"></a></p>
+    <content><![CDATA[<h3 id="每日一条linux命令之ls"><a href="#每日一条linux命令之ls" class="headerlink" title="每日一条linux命令之ls"></a>每日一条linux命令之<strong>ls</strong></h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可</p>
+<p>以查看文件权限和文件的信息等等。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>ls [选项] [目录名]</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>打印出目标目录下的所有的子目录及问件</p>
 <h4 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h4><p>-a  列出目标目录下的所有文件夹和文件，包括.开头的隐藏文件</p>
