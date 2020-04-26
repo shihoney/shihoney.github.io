@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>rm命令</title>
+    <url>/2020/04/26/linux-05/</url>
+    <content><![CDATA[<h3 id="每日一条linux命令之rm"><a href="#每日一条linux命令之rm" class="headerlink" title="每日一条linux命令之rm"></a>每日一条linux命令之<strong>rm</strong></h3><p>rm命令是linux删除文件和目录的命令。</p>
+<p>该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。</p>
+<p>对于链接文件，只是删除了链接，原有文件均保持不变。</p>
+<p>rm是一个危险的命令，使用的时候要特别当心。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>rm [选项] 文件</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>删除一个目录中的一个或者多个文件或目录，如果没有使用 -r 选项，则不会删除目录。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状。</p>
+<h4 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h4><p>-f 忽略不存在的文件，从不给出提示</p>
+<p>-i 进行交互式删除</p>
+<p>-r 指示 rm 将参数中的列出的全部目录及其子目录递归地删除</p>
+<p>-v 详细地显示操作的步骤</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mkdir命令</title>
     <url>/2020/04/25/linux-04/</url>
     <content><![CDATA[<h3 id="每日一条linux命令之mkdir"><a href="#每日一条linux命令之mkdir" class="headerlink" title="每日一条linux命令之mkdir"></a>每日一条linux命令之<strong>mkdir</strong></h3><p>mkdir命令用来创建指定名称的目录，要求创建目录的用户在当前的目录下具有写权限，并且指定的名称不能是已经存在的名称。 <a id="more"></a></p>
