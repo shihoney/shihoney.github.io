@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>mv命令</title>
+    <title>每日一条linux命令之mv命令</title>
     <url>/2020/04/28/linux-07/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之mv命令"><a href="#每日一条linux命令之mv命令" class="headerlink" title="每日一条linux命令之mv命令"></a>每日一条linux命令之<strong>mv命令</strong></h3><p>mv是move的缩写，可以用来移动文件或者给为文件改名。通常用来备份文件或者目录 <a id="more"></a></p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>mv是move的缩写，可以用来移动文件或者给为文件改名。通常用来备份文件或者目录 <a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>mv [选项] 源文件或目录 目标文件或目录</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>根据第二个参数类型来决定，mv命令将文件重命名或将其移至一个新的目录中。</p>
 <p>如果第二个参数是文件时，mv命令会完成重命名功能，此时，源文件只能有一个（也可以是源目录名），它将所</p>
@@ -24,9 +24,9 @@
       </tags>
   </entry>
   <entry>
-    <title>rmdir命令</title>
+    <title>每日一条linux命令之rmdir命令</title>
     <url>/2020/04/27/linux-06/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之rmdir命令"><a href="#每日一条linux命令之rmdir命令" class="headerlink" title="每日一条linux命令之rmdir命令"></a>每日一条linux命令之<strong>rmdir</strong>命令</h3><p>rmdir是常用的命令，该命令的功能是删除空目录，一个目录被删除之前必须是空的。</p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>rmdir是常用的命令，该命令的功能是删除空目录，一个目录被删除之前必须是空的。</p>
 <p>（注意，rm - r dir命令可代替rmdir，但是有很大危险性。）删除某目录时也必须具有对父目录的写权限。</p>
 <a id="more"></a>
 
@@ -44,9 +44,9 @@
       </tags>
   </entry>
   <entry>
-    <title>rm命令</title>
+    <title>每日一条linux命令之rm</title>
     <url>/2020/04/26/linux-05/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之rm"><a href="#每日一条linux命令之rm" class="headerlink" title="每日一条linux命令之rm"></a>每日一条linux命令之<strong>rm</strong></h3><p>rm命令是linux删除文件和目录的命令。</p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>rm命令是linux删除文件和目录的命令。</p>
 <p>该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。</p>
 <p>对于链接文件，只是删除了链接，原有文件均保持不变。</p>
 <p>rm是一个危险的命令，使用的时候要特别当心。<a id="more"></a></p>
@@ -65,9 +65,9 @@
       </tags>
   </entry>
   <entry>
-    <title>mkdir命令</title>
+    <title>每日一条linux命令之mkdir</title>
     <url>/2020/04/25/linux-04/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之mkdir"><a href="#每日一条linux命令之mkdir" class="headerlink" title="每日一条linux命令之mkdir"></a>每日一条linux命令之<strong>mkdir</strong></h3><p>mkdir命令用来创建指定名称的目录，要求创建目录的用户在当前的目录下具有写权限，并且指定的名称不能是已经存在的名称。 <a id="more"></a></p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>mkdir命令用来创建指定名称的目录，要求创建目录的用户在当前的目录下具有写权限，并且指定的名称不能是已经存在的名称。 <a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>mkdir [选项] 名称</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。</p>
 <p>要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。</p>
@@ -84,9 +84,9 @@
       </tags>
   </entry>
   <entry>
-    <title>pwd命令</title>
+    <title>每日一条linux命令之pwd</title>
     <url>/2020/04/24/linux-03/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之pwd"><a href="#每日一条linux命令之pwd" class="headerlink" title="每日一条linux命令之pwd"></a>每日一条linux命令之<strong>pwd</strong></h3><p>pwd命令用来查看当前工作目录的完整路径。每当在终端进行操作时，你都会有一个当前工作目录。在不确定当前</p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>pwd命令用来查看当前工作目录的完整路径。每当在终端进行操作时，你都会有一个当前工作目录。在不确定当前</p>
 <p>位置时，就可以使用‘pwd’命令来判定当前目录在文件系统内的确切位置。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>pwd [选项]</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>查看”当前工作目录“的完整路径</p>
@@ -102,9 +102,9 @@
       </tags>
   </entry>
   <entry>
-    <title>cd命令</title>
+    <title>每日一条linux命令之cd</title>
     <url>/2020/04/23/linux-02/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之cd"><a href="#每日一条linux命令之cd" class="headerlink" title="每日一条linux命令之cd"></a>每日一条linux命令之<strong>cd</strong></h3><p>cd命令是linux最基本的命令，其他的命令语句要进行操作，都是建立在使用 cd 命令上的。</p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>cd命令是linux最基本的命令，其他的命令语句要进行操作，都是建立在使用 cd 命令上的。</p>
 <p>所以，学习Linux 常用命令，首先就要学好 cd 命令的使用方法技巧。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>cd [目录名]</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>切换目录</p>
@@ -125,9 +125,9 @@
       </tags>
   </entry>
   <entry>
-    <title>ls 命令</title>
+    <title>每日一条linux命令之ls</title>
     <url>/2020/04/22/linux-01/</url>
-    <content><![CDATA[<h3 id="每日一条linux命令之ls"><a href="#每日一条linux命令之ls" class="headerlink" title="每日一条linux命令之ls"></a>每日一条linux命令之<strong>ls</strong></h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可</p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>ls命令是linux最常用的命令，它是list的缩写，主要用来打印当前目录下的文件夹及文件清单，除此之外还可</p>
 <p>以查看文件权限和文件的信息等等。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>ls [选项] [目录名]</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>打印出目标目录下的所有的子目录及问件</p>
