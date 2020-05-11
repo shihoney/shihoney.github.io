@@ -1,6 +1,369 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>每日一条linux命令之find命令</title>
+    <url>/2020/05/09/linux-19/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件</p>
+<p>，功能很强大。由于find具有强大的功能，所以它的选项也很多，其中大部分选项都值得我们花时间来了解一</p>
+<p>下。即使系统中含有网络文件系统( NFS)，find命令在该文件系统中同样有效，只你具有相应的权限。 在运</p>
+<p>行一个非常消耗资源的find命令时，很多人都倾向于把它放在后台执行，因为遍历一个大的文件系统可能会花</p>
+<p>费很长的时间(这里是指30G字节以上的文件系统)。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>find pathname -options [-print -exec -ok …]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>用于在文件树种查找文件，并作出相应的处理 </p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。 </p>
+<p>-print： find命令将匹配的文件输出到标准输出。 </p>
+<p>-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为’command’ {  }</p>
+<p> ;，注意{   }和\；之间的空格。 </p>
+<p>-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个</p>
+<p>命令之前，都会给出提示，让用户来确定是否执行。</p>
+<h4 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h4><p>-name   按照文件名查找文件。</p>
+<p>-perm   按照文件权限来查找文件。</p>
+<p>-prune  使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。</p>
+<p>-user   按照文件属主来查找文件。</p>
+<p>-group  按照文件所属的组来查找文件。</p>
+<p>-mtime -n +n  按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。</p>
+<p>-nogroup  查找无有效所属组的文件，即该文件所属的组在/etc/groups中不存在。</p>
+<p>-nouser   查找无有效属主的文件，即该文件的属主在/etc/passwd中不存在。</p>
+<p>-newer file1 ! file2  查找更改时间比文件file1新但比文件file2旧的文件。</p>
+<p>-type  查找某一类型的文件，诸如：</p>
+<p>b - 块设备文件。</p>
+<p>d - 目录。</p>
+<p>c - 字符设备文件。</p>
+<p>p - 管道文件。</p>
+<p>l - 符号链接文件。</p>
+<p>f - 普通文件。</p>
+<p>-size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。-depth：在查找文件时，首先<br>查找当前目录中的文件，然后再在其子目录中查找。</p>
+<p>-fstype：查找位于某一类型文件系统中的文件，这些文件系统类型通常可以在配置文件/etc/fstab中找到，该配置文件中包含了本系统中有关文件系统的信息。</p>
+<p>-mount：在查找文件时不跨越文件系统mount点。</p>
+<p>-follow：如果find命令遇到符号链接文件，就跟踪至链接所指向的文件。</p>
+<p>-cpio：对匹配的文件使用cpio命令，将这些文件备份到磁带设备中。</p>
+<p>另外,下面三个的区别:</p>
+<p>-amin n   查找系统中最后N分钟访问的文件</p>
+<p>-atime n  查找系统中最后n*24小时访问的文件</p>
+<p>-cmin n   查找系统中最后N分钟被改变文件状态的文件</p>
+<p>-ctime n  查找系统中最后n*24小时被改变文件状态的文件</p>
+<p>-mmin n   查找系统中最后N分钟被改变文件数据的文件</p>
+<p>-mtime n  查找系统中最后n*24小时被改变文件数据的文件</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之locate命令</title>
+    <url>/2020/05/08/linux-18/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>locate 让使用者可以很快速的搜寻档案系统内是否有指定的档案。其方法是先建立一个包括系统内所有档案名称及路径的数据库，</p>
+<p>之后当寻找时就只需查询这个数据库，而不必实际深入档案系统之中了。在一般的 distribution 之中，数据库的建立都被放在</p>
+<p>crontab 中自动执行。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>Locate [选择参数] [样式]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>locate命令可以在搜寻数据库时快速找到档案，数据库由updatedb程序来更新，updatedb是由cron daemon周期性建立的，</p>
+<p>locate命令在搜寻数据库时比由整个由硬盘资料来搜寻资料来得快，但较差劲的是locate所找到的档案若是最近才建立或</p>
+<p>刚更名的，可能会找不到，在内定值中，updatedb每天会跑一次，可以由修改crontab来更新设定值。(etc/crontab)</p>
+<p>locate指定用在搜寻符合条件的档案，它会去储存档案与目录名称的数据库内，寻找合乎范本样式条件的档案或目录录，可以使用特</p>
+<p>殊字元（如”<em>” 或”?”等）来指定范本样式，如指定范本为kcpa</em>ner, </p>
+<p>locate会找出所有起始字串为kcpa且结尾为ner的档案或目录，如名称为kcpartner若目录录名称为kcpa_</p>
+<p>ner则会列出该目录下包括 子目录在内的所有档案。</p>
+<p>locate指令和find找寻档案的功能类似，但locate是透过update程序将硬盘中的所有档案和目录资料先建立一个索引数据库，在</p>
+<p>执行loacte时直接找该索引，查询速度会较快，索引数据库一般是由操作系统管理，但也可以直接下达update强迫系统立即修改索</p>
+<p>引数据库。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-e   将排除在寻找的范围之外。</p>
+<p>-1  如果 是 1．则启动安全模式。在安全模式下，使用者不会看到权限无法看到 的档案。这会始速度减慢，因为 locate</p>
+<p>必须至实际的档案系统中取得档案的 权限资料。</p>
+<p>-f   将特定的档案系统排除在外，例如我们没有到理要把 proc 档案系统中的档案 放在资料库中。</p>
+<p>-q  安静模式，不会显示任何错误讯息。</p>
+<p>-n 至多显示 n个输出。</p>
+<p>-r 使用正规运算式 做寻找的条件。</p>
+<p>-o 指定资料库存的名称。</p>
+<p>-d 指定资料库的路径</p>
+<p>-h 显示辅助讯息</p>
+<p>-V 显示程式的版本讯息</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之whereis命令</title>
+    <url>/2020/05/07/linux-17/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码</p>
+<p>文件（参数-s）。如果省略参数，则返回所有信息。</p>
+<p>和find相比，whereis查找的速度非常快，这是因为linux系统会将 系统内的所有文件都记录在一个数据库</p>
+<p>文件中，当使用whereis和下面即将介绍的locate时，会从数据库中查找数据，而不是像find命令那样，通</p>
+<p>过遍历硬盘来查找，效率自然会很高。 </p>
+<p>但是该数据库文件并不是实时更新，默认情况下是一星期更新一次，因此，我们在用whereis和locate 查找</p>
+<p>文件时，有时会找到已经被删除的数据，或者刚刚建立文件，却无法查找到，原因就是因为数据库文件没有被</p>
+<p>更新。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>whereis [-bmsu] [BMS 目录名 -f ] 文件名</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代</p>
+<p>码，二进制文件，或是帮助文件。whereis程序还具有搜索源代码、指定备用搜索路径和搜索不寻常项的能力。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-b   定位可执行文件。</p>
+<p>-m   定位帮助文件。</p>
+<p>-s   定位源代码文件。</p>
+<p>-u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件。</p>
+<p>-B   指定搜索可执行文件的路径。</p>
+<p>-M   指定搜索帮助文件的路径。</p>
+<p>-S   指定搜索源代码文件的路径。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之which命令</title>
+    <url>/2020/05/06/linux-16/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>我们经常在linux要查找某个文件，但不知道放在哪里了，可以使用下面的一些命令来搜索： </p>
+<p>which  查看可执行文件的位置。</p>
+<p>whereis 查看文件的位置。 </p>
+<p>locate   配合数据库查看文件位置。</p>
+<p>find   实际搜寻硬盘查询文件名称。</p>
+<p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。<a id="more"></a> </p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>which 可执行文件名称 </p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>which指令会在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-n 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。</p>
+<p>-p 　与-n参数相同，但此处的包括了文件的路径。</p>
+<p>-w 　指定输出时栏位的宽度。</p>
+<p>-V 　显示版本信息</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之tail命令</title>
+    <url>/2020/05/05/linux-15/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>tail 命令从指定点开始将文件写到标准输出.使用tail命令的-f选项可以方便的查阅正在改变的日志文件,</p>
+<p>tail -f filename会把filename里最尾部的内容显示在屏幕上,并且不但刷新,使你看到最新的文件内容. <a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>tail [必要参数] [选择参数] [文件]   </p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-f 循环读取</p>
+<p>-q 不显示处理信息</p>
+<p>-v 显示详细的处理信息</p>
+<p>-c&lt;数目&gt; 显示的字节数</p>
+<p>-n&lt;行数&gt; 显示行数</p>
+<p>–pid=PID 与-f合用,表示在进程ID,PID死掉之后结束. </p>
+<p>-q, –quiet, –silent 从不输出给出文件名的首部 </p>
+<p>-s, –sleep-interval=S 与-f合用,表示在每次反复的间隔休眠S秒 </p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之head命令</title>
+    <url>/2020/05/04/linux-14/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>head 与 tail 就像它的名字一样的浅显易懂，它是用来显示开头或结尾某个数量的文字区块，head</p>
+<p>用来显示档案的开头至标准输出中，而 tail 想当然尔就是看档案的结尾。 <a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>head [参数]… [文件]… </p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>head 用来显示档案的开头至标准输出中，默认head命令打印其相应文件的开头10行。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-q 隐藏文件名</p>
+<p>-v 显示文件名</p>
+<p>-c&lt;字节&gt; 显示字节数</p>
+<p>-n&lt;行数&gt; 显示的行数</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之less命令</title>
+    <url>/2020/05/03/linux-13/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>less 工具也是对文件或其它输出进行分页显示的工具，应该说是linux正统查看文件内容的工具，功能极其强大。less 的用法比起 more 更加的有弹性。在 more 的时候，我们并没有办法向前面翻，</p>
+<p>只能往后面看，但若使用了 less 时，就可以使用 [pageup] [pagedown] 等按键的功能来往前往后翻看文件，更容易用来查看一个文件的内容！除此之外，在 less </p>
+<p>里头可以拥有更多的搜索功能，不止可以向下搜，也可以向上搜。 <a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>less [参数]  文件 </p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-b &lt;缓冲区大小&gt; 设置缓冲区的大小</p>
+<p>-e  当文件显示结束后，自动离开</p>
+<p>-f  强迫打开特殊文件，例如外围设备代号、目录和二进制文件</p>
+<p>-g  只标志最后搜索的关键词</p>
+<p>-i  忽略搜索时的大小写</p>
+<p>-m  显示类似more命令的百分比</p>
+<p>-N  显示每行的行号</p>
+<p>-o &lt;文件名&gt; 将less 输出的内容在指定文件中保存起来</p>
+<p>-Q  不使用警告音</p>
+<p>-s  显示连续空行为一行</p>
+<p>-S  行过长时间将超出部分舍弃</p>
+<p>-x &lt;数字&gt; 将“tab”键显示为规定的数字空格</p>
+<p>/字符串：向下搜索“字符串”的功能</p>
+<p>?字符串：向上搜索“字符串”的功能</p>
+<p>n：重复前一个搜索（与 / 或 ? 有关）</p>
+<p>N：反向重复前一个搜索（与 / 或 ? 有关）</p>
+<p>b  向后翻一页</p>
+<p>d  向后翻半页</p>
+<p>h  显示帮助界面</p>
+<p>Q  退出less 命令</p>
+<p>u  向前滚动半页</p>
+<p>y  向前滚动一行</p>
+<p>空格键 滚动一行</p>
+<p>回车键 滚动一页</p>
+<p>[pagedown]： 向下翻动一页</p>
+<p>[pageup]：   向上翻动一页</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之more命令</title>
+    <url>/2020/05/02/linux-12/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 </p>
+<p>more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能 。</p>
+<p>more命令从前向后读取文件，因此在启动时就加载整个文件。</p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file … ] </p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>more命令和cat的功能一样都是查看文件里的内容，但有所不同的是more可以按页来查看文件的内容，还支持直接跳转行等功能。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>+n       从笫n行开始显示</p>
+<p>-n       定义屏幕大小为n行</p>
+<p>+/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示  </p>
+<p>-c       从顶部清屏，然后显示</p>
+<p>-d       提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能</p>
+<p>-l        忽略Ctrl+l（换页）字符</p>
+<p>-p       通过清除窗口而不是滚屏来对文件进行换页，与-c选项相似</p>
+<p>-s       把连续的多个空行显示为一行</p>
+<p>-u       把文件内容中的下画线去掉</p>
+<p>Enter    向下n行，需要定义。默认为1行</p>
+<p>Ctrl+F   向下滚动一屏</p>
+<p>空格键  向下滚动一屏</p>
+<p>Ctrl+B  返回上一屏</p>
+<p>=       输出当前行的行号</p>
+<p>：f     输出文件名和当前行的行号</p>
+<p>V      调用vi编辑器</p>
+<p>!命令   调用Shell，并执行命令 </p>
+<p>q       退出more</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之nl命令</title>
+    <url>/2020/05/01/linux-11/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>nl命令在linux系统中用来计算文件中行号。nl 可以将输出的文件内容自动的加上行号！其默认的结果与</p>
+<p>cat -n 有点不太一样， nl 可以将行号做比较多的显示设计，包括位数与是否自动补齐 0 等等的功能。</p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>nl  [选项]… [文件]…</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>nl 命令读取 File 参数（缺省情况下标准输入），计算输入中的行号，将计算过的行号写入标准输出。</p>
+<p>在输出中，nl 命令根据您在命令行中指定的标志来计算左边的行。 </p>
+<p>输入文本必须写在逻辑页中。每个逻辑页有头、主体和页脚节（可以有空节）。 除非使用 -p 标志，nl </p>
+<p>命令在每个逻辑页开始的地方重新设置行号。</p>
+<p>可以单独为头、主体和页脚节设置行计算标志（例如，头和页脚行可以被计算然而文本行不能）。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-b  ：指定行号指定的方式，主要有两种：</p>
+<p>-b a ：表示不论是否为空行，也同样列出行号(类似 cat -n)；</p>
+<p>-b t ：如果有空行，空的那一行不要列出行号(默认值)；</p>
+<p>-n  ：列出行号表示的方法，主要有三种：</p>
+<p>-n ln ：行号在萤幕的最左方显示；</p>
+<p>-n rn ：行号在自己栏位的最右方显示，且不加 0 ；</p>
+<p>-n rz ：行号在自己栏位的最右方显示，且加 0 ；</p>
+<p>-w  ：行号栏位的占用的位数。</p>
+<p>-p 在逻辑定界符处不重新开始计算。 </p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之touch命令</title>
+    <url>/2020/04/30/linux-09/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>linux的touch命令不常用，一般在使用make的时候可能会用到，用来修改文件时间戳，或者新建一个不存在</p>
+<p>的文件。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>touch [选项]… 文件…</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>touch命令参数可更改文档或目录的日期时间，包括存取时间和更改时间。 </p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-a   或–time=atime或–time=access或–time=use 　只更改存取时间。</p>
+<p>-c   或–no-create 　不建立任何文档。</p>
+<p>-d 　使用指定的日期时间，而非现在的时间。</p>
+<p>-f 　此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题。</p>
+<p>-m   或–time=mtime或–time=modify 　只更改变动时间。</p>
+<p>-r 　把指定文档或目录的日期时间，统统设成和参考文档或目录的日期时间相同。</p>
+<p>-t 　使用指定的日期时间，而非现在的时间。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之cat命令</title>
+    <url>/2020/04/30/linux-10/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>cat命令的用途是连接文件或标准输入并打印。这个命令常用来显示文件内容，或者将几个文件连接起来显示</p>
+<p>，或者从标准输入读取内容并显示，它常与重定向符号配合使用。 <a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>cat [选项] [文件]…</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>1.一次显示整个文件:cat filename</p>
+<p>2.从键盘创建一个文件:cat &gt; filename 只能创建新文件,不能编辑已有文件.</p>
+<p>3.将几个文件合并为一个文件:cat file1 file2 &gt; file</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-A, –show-all           等价于 -vET</p>
+<p>-b, –number-nonblank    对非空输出行编号</p>
+<p>-e                       等价于 -vE</p>
+<p>-E, –show-ends          在每行结束处显示 $</p>
+<p>-n, –number     对输出的所有行编号,由1开始对所有输出的行数编号</p>
+<p>-s, –squeeze-blank  有连续两行以上的空白行，就代换为一行的空白行 </p>
+<p>-t                       与 -vT 等价</p>
+<p>-T, –show-tabs          将跳格字符显示为 ^I</p>
+<p>-u                       (被忽略)</p>
+<p>-v, –show-nonprinting   使用 ^ 和 M- 引用，除了 LFD 和 TAB 之外</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日一条linux命令之cp命令</title>
+    <url>/2020/04/29/linux-08/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>cp命令是用来复制文件或者目录，是linux中最常用的命令之一。 <a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>cp [选项]… [-T] 源 目的</p>
+<p>cp [选项]… 源… 目录</p>
+<p>cp [选项]… -t 目录 源…</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>将源文件复制至目标文件，或将多个源文件复制至目标目录。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-a：此参数的效果和同时指定”-dpR”参数相同；</p>
+<p>-d：当复制符号连接时，把目标文件或目录也建立为符号连接，并指向与源文件或目录连接的原始文件或目录；</p>
+<p>-f：强行复制文件或目录，不论目标文件或目录是否已存在；</p>
+<p>-i：覆盖既有文件之前先询问用户；</p>
+<p>-l：对源文件建立硬连接，而非复制文件；</p>
+<p>-p：保留源文件或目录的属性；</p>
+<p>-R/r：递归处理，将指定目录下的所有文件与子目录一并处理；</p>
+<p>-s：对源文件建立符号连接，而非复制文件；</p>
+<p>-u：使用这项参数后只会在源文件的更改时间较目标文件更新时或是名称相互对应的目标文件并不存在时，才复制文件；</p>
+<p>-S：在备份文件时，用指定的后缀“SUFFIX”代替文件的默认后缀；</p>
+<p>-b：覆盖已存在的文件目标前将目标文件备份；</p>
+<p>-v：详细显示命令执行的操作。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>每日一条linux命令之mv命令</title>
     <url>/2020/04/28/linux-07/</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>mv是move的缩写，可以用来移动文件或者给为文件改名。通常用来备份文件或者目录 <a id="more"></a></p>

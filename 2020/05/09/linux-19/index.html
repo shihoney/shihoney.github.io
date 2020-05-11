@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    每日一条linux命令之mv命令 |  石头的博客
+    每日一条linux命令之find命令 |  石头的博客
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -40,7 +40,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-linux-07" class="article article-type-post" itemscope
+  <article id="post-linux-19" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -48,7 +48,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  每日一条linux命令之mv命令
+  每日一条linux命令之find命令
 </h1>
  
 
@@ -57,8 +57,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/28/linux-07/" class="article-date">
-  <time datetime="2020-04-28T09:41:03.000Z" itemprop="datePublished">2020-04-28</time>
+      <a href="/2020/05/09/linux-19/" class="article-date">
+  <time datetime="2020-05-09T06:14:06.000Z" itemprop="datePublished">2020-05-09</time>
 </a>
       
   <div class="article-category">
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">370字</span>
+            <span class="post-count">971字</span>
         </span>
     </span>
 
@@ -81,7 +81,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -106,18 +106,47 @@
       
 
       
-      <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>mv是move的缩写，可以用来移动文件或者给为文件改名。通常用来备份文件或者目录 <a id="more"></a></p>
-<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>mv [选项] 源文件或目录 目标文件或目录</p>
-<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>根据第二个参数类型来决定，mv命令将文件重命名或将其移至一个新的目录中。</p>
-<p>如果第二个参数是文件时，mv命令会完成重命名功能，此时，源文件只能有一个（也可以是源目录名），它将所</p>
-<p>给的源文件或目录重命名为给定的目标文件名。</p>
-<p>当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，mv命令将各参数指定的源文件均移至目标</p>
-<p>目录中。在跨文件系统移动文件时，mv先拷贝，再将原有文件删除，而链至该文件的链接也将丢失。</p>
-<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-b 若需覆盖文件，则覆盖前先行备份。 </p>
-<p>-f force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</p>
-<p>-i 若目标文件 (destination) 已经存在时，就会询问是否覆盖！</p>
-<p>-u 若目标文件已经存在，且 source 比较新，才会更新(update)</p>
-<p>-t 即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。</p>
+      <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件</p>
+<p>，功能很强大。由于find具有强大的功能，所以它的选项也很多，其中大部分选项都值得我们花时间来了解一</p>
+<p>下。即使系统中含有网络文件系统( NFS)，find命令在该文件系统中同样有效，只你具有相应的权限。 在运</p>
+<p>行一个非常消耗资源的find命令时，很多人都倾向于把它放在后台执行，因为遍历一个大的文件系统可能会花</p>
+<p>费很长的时间(这里是指30G字节以上的文件系统)。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>find pathname -options [-print -exec -ok …]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>用于在文件树种查找文件，并作出相应的处理 </p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。 </p>
+<p>-print： find命令将匹配的文件输出到标准输出。 </p>
+<p>-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为’command’ {  }</p>
+<p> ;，注意{   }和\；之间的空格。 </p>
+<p>-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个</p>
+<p>命令之前，都会给出提示，让用户来确定是否执行。</p>
+<h4 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h4><p>-name   按照文件名查找文件。</p>
+<p>-perm   按照文件权限来查找文件。</p>
+<p>-prune  使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。</p>
+<p>-user   按照文件属主来查找文件。</p>
+<p>-group  按照文件所属的组来查找文件。</p>
+<p>-mtime -n +n  按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。</p>
+<p>-nogroup  查找无有效所属组的文件，即该文件所属的组在/etc/groups中不存在。</p>
+<p>-nouser   查找无有效属主的文件，即该文件的属主在/etc/passwd中不存在。</p>
+<p>-newer file1 ! file2  查找更改时间比文件file1新但比文件file2旧的文件。</p>
+<p>-type  查找某一类型的文件，诸如：</p>
+<p>b - 块设备文件。</p>
+<p>d - 目录。</p>
+<p>c - 字符设备文件。</p>
+<p>p - 管道文件。</p>
+<p>l - 符号链接文件。</p>
+<p>f - 普通文件。</p>
+<p>-size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。-depth：在查找文件时，首先<br>查找当前目录中的文件，然后再在其子目录中查找。</p>
+<p>-fstype：查找位于某一类型文件系统中的文件，这些文件系统类型通常可以在配置文件/etc/fstab中找到，该配置文件中包含了本系统中有关文件系统的信息。</p>
+<p>-mount：在查找文件时不跨越文件系统mount点。</p>
+<p>-follow：如果find命令遇到符号链接文件，就跟踪至链接所指向的文件。</p>
+<p>-cpio：对匹配的文件使用cpio命令，将这些文件备份到磁带设备中。</p>
+<p>另外,下面三个的区别:</p>
+<p>-amin n   查找系统中最后N分钟访问的文件</p>
+<p>-atime n  查找系统中最后n*24小时访问的文件</p>
+<p>-cmin n   查找系统中最后N分钟被改变文件状态的文件</p>
+<p>-ctime n  查找系统中最后n*24小时被改变文件状态的文件</p>
+<p>-mmin n   查找系统中最后N分钟被改变文件数据的文件</p>
+<p>-mtime n  查找系统中最后n*24小时被改变文件数据的文件</p>
 
       
       <!-- reward -->
@@ -183,7 +212,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shihoney.github.io/2020/04/28/linux-07/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shihoney.github.io/2020/05/09/linux-19/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -201,19 +230,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/29/linux-08/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            每日一条linux命令之cp命令
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/04/27/linux-06/" class="article-nav-link">
+      <a href="/2020/05/08/linux-18/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">每日一条linux命令之rmdir命令</div>
+        <div class="article-nav-title">每日一条linux命令之locate命令</div>
       </a>
     
   </nav>
