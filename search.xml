@@ -185,8 +185,10 @@
   <entry>
     <title>每日一条linux命令之less命令</title>
     <url>/2020/05/03/linux-13/</url>
-    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>less 工具也是对文件或其它输出进行分页显示的工具，应该说是linux正统查看文件内容的工具，功能极其强大。less 的用法比起 more 更加的有弹性。在 more 的时候，我们并没有办法向前面翻，</p>
-<p>只能往后面看，但若使用了 less 时，就可以使用 [pageup] [pagedown] 等按键的功能来往前往后翻看文件，更容易用来查看一个文件的内容！除此之外，在 less </p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>less 工具也是对文件或其它输出进行分页显示的工具，应该说是linux正统查看文件内容的工具，功能极其</p>
+<p>强大。less 的用法比起 more 更加的有弹性。在 more 的时候，我们并没有办法向前面翻，</p>
+<p>只能往后面看，但若使用了 less 时，就可以使用 [pageup] [pagedown] </p>
+<p>等按键的功能来往前往后翻看文件，更容易用来查看一个文件的内容！除此之外，在 less </p>
 <p>里头可以拥有更多的搜索功能，不止可以向下搜，也可以向上搜。 <a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>less [参数]  文件 </p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。</p>
@@ -228,10 +230,12 @@
     <title>每日一条linux命令之more命令</title>
     <url>/2020/05/02/linux-12/</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>more命令，功能类似 cat ，cat命令是整个文件的内容从上到下显示在屏幕上。 </p>
-<p>more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示，而且还有搜寻字串的功能 。</p>
-<p>more命令从前向后读取文件，因此在启动时就加载整个文件。</p>
+<p>more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按</p>
+<p>b 键就会往回（back）一页显示，而且还有搜寻字串的功能 。</p>
+<p>more命令从前向后读取文件，因此在启动时就加载整个文件。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>more [-dlfpcsu ] [-num ] [+/ pattern] [+ linenum] [file … ] </p>
-<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>more命令和cat的功能一样都是查看文件里的内容，但有所不同的是more可以按页来查看文件的内容，还支持直接跳转行等功能。</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>more命令和cat的功能一样都是查看文件里的内容，但有所不同的是more可以按页来查看文件的内容，还支持</p>
+<p>直接跳转行等功能。</p>
 <h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>+n       从笫n行开始显示</p>
 <p>-n       定义屏幕大小为n行</p>
 <p>+/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示  </p>
@@ -262,7 +266,7 @@
     <title>每日一条linux命令之nl命令</title>
     <url>/2020/05/01/linux-11/</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>nl命令在linux系统中用来计算文件中行号。nl 可以将输出的文件内容自动的加上行号！其默认的结果与</p>
-<p>cat -n 有点不太一样， nl 可以将行号做比较多的显示设计，包括位数与是否自动补齐 0 等等的功能。</p>
+<p>cat -n 有点不太一样， nl 可以将行号做比较多的显示设计，包括位数与是否自动补齐 0 等等的功能。<a id="more"></a></p>
 <h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>nl  [选项]… [文件]…</p>
 <h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>nl 命令读取 File 参数（缺省情况下标准输入），计算输入中的行号，将计算过的行号写入标准输出。</p>
 <p>在输出中，nl 命令根据您在命令行中指定的标志来计算左边的行。 </p>
