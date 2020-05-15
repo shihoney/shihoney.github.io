@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    每日一条linux命令之find命令 |  石头的博客
+    每日一条linux命令之kill命令 |  石头的博客
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -40,7 +40,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-linux-19" class="article article-type-post" itemscope
+  <article id="post-linux-21" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -48,7 +48,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  每日一条linux命令之find命令
+  每日一条linux命令之kill命令
 </h1>
  
 
@@ -57,8 +57,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/09/linux-19/" class="article-date">
-  <time datetime="2020-05-09T06:14:06.000Z" itemprop="datePublished">2020-05-09</time>
+      <a href="/2020/05/15/linux-21/" class="article-date">
+  <time datetime="2020-05-15T06:41:16.000Z" itemprop="datePublished">2020-05-15</time>
 </a>
       
   <div class="article-category">
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">971字</span>
+            <span class="post-count">929字</span>
         </span>
     </span>
 
@@ -106,47 +106,36 @@
       
 
       
-      <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件</p>
-<p>，功能很强大。由于find具有强大的功能，所以它的选项也很多，其中大部分选项都值得我们花时间来了解一</p>
-<p>下。即使系统中含有网络文件系统( NFS)，find命令在该文件系统中同样有效，只你具有相应的权限。 在运</p>
-<p>行一个非常消耗资源的find命令时，很多人都倾向于把它放在后台执行，因为遍历一个大的文件系统可能会花</p>
-<p>费很长的时间(这里是指30G字节以上的文件系统)。<a id="more"></a></p>
-<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>find pathname -options [-print -exec -ok …]</p>
-<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>用于在文件树种查找文件，并作出相应的处理 </p>
-<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。 </p>
-<p>-print： find命令将匹配的文件输出到标准输出。 </p>
-<p>-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为’command’ {  }</p>
-<p> ;，注意{   }和\；之间的空格。 </p>
-<p>-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个</p>
-<p>命令之前，都会给出提示，让用户来确定是否执行。</p>
-<h4 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h4><p>-name   按照文件名查找文件。</p>
-<p>-perm   按照文件权限来查找文件。</p>
-<p>-prune  使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。</p>
-<p>-user   按照文件属主来查找文件。</p>
-<p>-group  按照文件所属的组来查找文件。</p>
-<p>-mtime -n +n  按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。</p>
-<p>-nogroup  查找无有效所属组的文件，即该文件所属的组在/etc/groups中不存在。</p>
-<p>-nouser   查找无有效属主的文件，即该文件的属主在/etc/passwd中不存在。</p>
-<p>-newer file1 ! file2  查找更改时间比文件file1新但比文件file2旧的文件。</p>
-<p>-type  查找某一类型的文件，诸如：</p>
-<p>b - 块设备文件。</p>
-<p>d - 目录。</p>
-<p>c - 字符设备文件。</p>
-<p>p - 管道文件。</p>
-<p>l - 符号链接文件。</p>
-<p>f - 普通文件。</p>
-<p>-size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。-depth：在查找文件时，首先<br>查找当前目录中的文件，然后再在其子目录中查找。</p>
-<p>-fstype：查找位于某一类型文件系统中的文件，这些文件系统类型通常可以在配置文件/etc/fstab中找到，该配置文件中包含了本系统中有关文件系统的信息。</p>
-<p>-mount：在查找文件时不跨越文件系统mount点。</p>
-<p>-follow：如果find命令遇到符号链接文件，就跟踪至链接所指向的文件。</p>
-<p>-cpio：对匹配的文件使用cpio命令，将这些文件备份到磁带设备中。</p>
-<p>另外,下面三个的区别:</p>
-<p>-amin n   查找系统中最后N分钟访问的文件</p>
-<p>-atime n  查找系统中最后n*24小时访问的文件</p>
-<p>-cmin n   查找系统中最后N分钟被改变文件状态的文件</p>
-<p>-ctime n  查找系统中最后n*24小时被改变文件状态的文件</p>
-<p>-mmin n   查找系统中最后N分钟被改变文件数据的文件</p>
-<p>-mtime n  查找系统中最后n*24小时被改变文件数据的文件</p>
+      <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>kill命令用来终止指定的进程的运行，是Linux下进程管理的常用命令。<a id="more"></a></p>
+<p>通常，终止一个前台进程可以使用Ctrl+C键</p>
+<p>，但是，对于一个后台进程就须用kill命令来终止，我们就需要先使用ps/pidof/pstree/top等工具获取进程PID，然后使用kill命令来杀掉该</p>
+<p>进程。kill命令是通过向进程发送指定的信号来结束相应进程的。在默认情况下，采用编号为15的TERM信号。TERM信号将终止所有不能捕获该信号</p>
+<p>的进程。对于那些可以捕获该信号的进程就要用编号为9的kill信号，强行“杀掉”该进程。</p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>kill [参数] [进程号]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>发送指定的信号到相应进程。不指定型号将发送SIGTERM（15）终止指定进程。如果任无法终止该程序可用“-KILL”</p>
+<p>参数，其发送的信号为SIGKILL(9) ，将强制结束进程，使用ps命令或者jobs</p>
+<p>命令可以查看进程号。root用户将影响用户的进程，非root用户只能影响自己的进程。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称</p>
+<p>-a  当处理当前进程时，不限制命令名和进程号的对应关系</p>
+<p>-p  指定kill 命令只打印相关进程的进程号，而不发送任何信号</p>
+<p>-s  指定发送信号</p>
+<p>-u  指定用户 </p>
+<p>注意：</p>
+<p>1、kill命令可以带信号号码选项，也可以不带。如果没有信号号码，kill命令就会发出终止信号(15)，这个信号可以被进程捕获，使得进程在退出之前可以清理并释放资源。也可以用kill向进程发送特定的信号。例如：</p>
+<p>kill -2 123</p>
+<p>它的效果等同于在前台运行PID为123的进程时按下Ctrl+C键。但是，普通用户只能使用不带signal参数的kill命令或最多使用-9信号。</p>
+<p>2、kill可以带有进程ID号作为参数。当用kill向这些进程发送信号时，必须是这些进程的主人。如果试图撤销一个没有权限撤销的进程或撤销一个不存在的进程，就会得到一个错误信息。</p>
+<p>3、可以向多个进程发信号或终止它们。</p>
+<p>4、当kill成功地发送了信号后，shell会在屏幕上显示出进程的终止信息。有时这个信息不会马上显示，只有当按下Enter键使shell的命令提示符再次出现时，才会显示出来。</p>
+<p>5、应注意，信号使进程强行终止，这常会带来一些副作用，如数据丢失或者终端无法恢复到正常状态。发送信号时必须小心，只有在万不得已时，才用kill信号(9)，因为进程不能首先捕获它。要撤销所有的后台作业，可以输入kill 0。因为有些在后台运行的命令会启动多个进程，跟踪并找到所有要杀掉的进程的PID是件很麻烦的事。这时，使用kill 0来终止所有由当前shell启动的进程，是个有效的方法。</p>
+<p>只有第9种信号(SIGKILL)才可以无条件终止进程，其他信号进程都有权利忽略。 下面是常用的信号：</p>
+<p>HUP    1    终端断线</p>
+<p>INT     2    中断（同 Ctrl + C）</p>
+<p>QUIT    3    退出（同 Ctrl + \）</p>
+<p>TERM   15    终止</p>
+<p>KILL    9    强制终止</p>
+<p>CONT   18    继续（与STOP相反， fg/bg命令）</p>
+<p>STOP    19    暂停（同 Ctrl + Z）</p>
 
       
       <!-- reward -->
@@ -212,7 +201,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shihoney.github.io/2020/05/09/linux-19/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shihoney.github.io/2020/05/15/linux-21/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -230,19 +219,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/15/linux-20/" class="article-nav-link">
+      <a href="/2020/05/15/linux-22/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            每日一条linux命令之ps命令
+            linux-22
           
         </div>
       </a>
     
     
-      <a href="/2020/05/08/linux-18/" class="article-nav-link">
+      <a href="/2020/05/15/linux-20/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">每日一条linux命令之locate命令</div>
+        <div class="article-nav-title">每日一条linux命令之ps命令</div>
       </a>
     
   </nav>

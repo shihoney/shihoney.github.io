@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    每日一条linux命令之find命令 |  石头的博客
+    linux-22 |  石头的博客
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -40,7 +40,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-linux-19" class="article article-type-post" itemscope
+  <article id="post-linux-22" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -48,7 +48,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  每日一条linux命令之find命令
+  linux-22
 </h1>
  
 
@@ -57,14 +57,10 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/09/linux-19/" class="article-date">
-  <time datetime="2020-05-09T06:14:06.000Z" itemprop="datePublished">2020-05-09</time>
+      <a href="/2020/05/15/linux-22/" class="article-date">
+  <time datetime="2020-05-15T06:53:10.232Z" itemprop="datePublished">2020-05-15</time>
 </a>
       
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
       
       
 <div class="word_count">
@@ -72,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">971字</span>
+            <span class="post-count">1.6k字</span>
         </span>
     </span>
 
@@ -81,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3分钟</span>
+            <span class="post-count">6分钟</span>
         </span>
     </span>
 </div>
@@ -106,47 +102,83 @@
       
 
       
-      <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件</p>
-<p>，功能很强大。由于find具有强大的功能，所以它的选项也很多，其中大部分选项都值得我们花时间来了解一</p>
-<p>下。即使系统中含有网络文件系统( NFS)，find命令在该文件系统中同样有效，只你具有相应的权限。 在运</p>
-<p>行一个非常消耗资源的find命令时，很多人都倾向于把它放在后台执行，因为遍历一个大的文件系统可能会花</p>
-<p>费很长的时间(这里是指30G字节以上的文件系统)。<a id="more"></a></p>
-<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>find pathname -options [-print -exec -ok …]</p>
-<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>用于在文件树种查找文件，并作出相应的处理 </p>
-<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。 </p>
-<p>-print： find命令将匹配的文件输出到标准输出。 </p>
-<p>-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为’command’ {  }</p>
-<p> ;，注意{   }和\；之间的空格。 </p>
-<p>-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个</p>
-<p>命令之前，都会给出提示，让用户来确定是否执行。</p>
-<h4 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h4><p>-name   按照文件名查找文件。</p>
-<p>-perm   按照文件权限来查找文件。</p>
-<p>-prune  使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。</p>
-<p>-user   按照文件属主来查找文件。</p>
-<p>-group  按照文件所属的组来查找文件。</p>
-<p>-mtime -n +n  按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。</p>
-<p>-nogroup  查找无有效所属组的文件，即该文件所属的组在/etc/groups中不存在。</p>
-<p>-nouser   查找无有效属主的文件，即该文件的属主在/etc/passwd中不存在。</p>
-<p>-newer file1 ! file2  查找更改时间比文件file1新但比文件file2旧的文件。</p>
-<p>-type  查找某一类型的文件，诸如：</p>
-<p>b - 块设备文件。</p>
-<p>d - 目录。</p>
-<p>c - 字符设备文件。</p>
-<p>p - 管道文件。</p>
-<p>l - 符号链接文件。</p>
-<p>f - 普通文件。</p>
-<p>-size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。-depth：在查找文件时，首先<br>查找当前目录中的文件，然后再在其子目录中查找。</p>
-<p>-fstype：查找位于某一类型文件系统中的文件，这些文件系统类型通常可以在配置文件/etc/fstab中找到，该配置文件中包含了本系统中有关文件系统的信息。</p>
-<p>-mount：在查找文件时不跨越文件系统mount点。</p>
-<p>-follow：如果find命令遇到符号链接文件，就跟踪至链接所指向的文件。</p>
-<p>-cpio：对匹配的文件使用cpio命令，将这些文件备份到磁带设备中。</p>
-<p>另外,下面三个的区别:</p>
-<p>-amin n   查找系统中最后N分钟访问的文件</p>
-<p>-atime n  查找系统中最后n*24小时访问的文件</p>
-<p>-cmin n   查找系统中最后N分钟被改变文件状态的文件</p>
-<p>-ctime n  查找系统中最后n*24小时被改变文件状态的文件</p>
-<p>-mmin n   查找系统中最后N分钟被改变文件数据的文件</p>
-<p>-mtime n  查找系统中最后n*24小时被改变文件数据的文件</p>
+      <hr>
+<p>title: 每日一条linux命令之top命令<br>date: 2020-05-15 14:53:10<br>categories: linux<br>tags: linux</p>
+<hr>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。<a id="more"></a></p>
+<p>下面详细介绍它的使用方法。top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终</p>
+<p>止该程序为止.比较准确的说,top命令提供了实时的对系统处理器的状态监视.它将显示系统中CPU最“敏感”的任务列表.该命令可以按CPU使用.内存</p>
+<p>使用和执行时间对任务进行排序；而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定.</p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>top [参数]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>显示当前系统正在执行的进程的相关信息，包括进程ID、内存占用率、CPU占用率等</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-b 批处理</p>
+<p>-c 显示完整的治命令</p>
+<p>-I 忽略失效过程</p>
+<p>-s 保密模式</p>
+<p>-S 累积模式</p>
+<p>-i&lt;时间&gt; 设置间隔时间</p>
+<p>-u&lt;用户名&gt; 指定用户名</p>
+<p>-p&lt;进程号&gt; 指定进程</p>
+<p>-n&lt;次数&gt; 循环显示的次数</p>
+<p>统计信息区：</p>
+<p>前五行是当前系统情况整体的统计信息区。下面我们看每一行信息的具体意义。</p>
+<p>第一行，任务队列信息，同 uptime 命令的执行结果，具体参数说明情况如下：</p>
+<p>14:06:23 — 当前系统时间</p>
+<p>up 70 days, 16:44 — 系统已经运行了70天16小时44分钟（在这期间系统没有重启过的吆！）</p>
+<p>2 users — 当前有2个用户登录系统</p>
+<p>load average: 1.15, 1.42, 1.44 — load average后面的三个数分别是1分钟、5分钟、15分钟的负载情况。</p>
+<p>load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了。</p>
+<p>第二行，Tasks — 任务（进程），具体信息说明如下：</p>
+<p>系统现在共有206个进程，其中处于运行中的有1个，205个在休眠（sleep），stoped状态的有0个，zombie状态（僵尸）的有0个。</p>
+<p>第三行，cpu状态信息，具体属性说明如下：</p>
+<p>5.9%us — 用户空间占用CPU的百分比。</p>
+<p>3.4% sy — 内核空间占用CPU的百分比。</p>
+<p>0.0% ni — 改变过优先级的进程占用CPU的百分比</p>
+<p>90.4% id — 空闲CPU百分比</p>
+<p>0.0% wa — IO等待占用CPU的百分比</p>
+<p>0.0% hi — 硬中断（Hardware IRQ）占用CPU的百分比</p>
+<p>0.2% si — 软中断（Software Interrupts）占用CPU的百分比</p>
+<p>备注：在这里CPU的使用比率和windows概念不同，需要理解linux系统用户空间和内核空间的相关知识！</p>
+<p>第四行,内存状态，具体信息如下：</p>
+<p>32949016k total — 物理内存总量（32GB）</p>
+<p>14411180k used — 使用中的内存总量（14GB）</p>
+<p>18537836k free — 空闲内存总量（18GB）</p>
+<p>169884k buffers — 缓存的内存量 （169M）</p>
+<p>第五行，swap交换分区信息，具体信息说明如下：</p>
+<p>32764556k total — 交换区总量（32GB）</p>
+<p>0k used — 使用的交换区总量（0K）</p>
+<p>32764556k free — 空闲交换区总量（32GB）</p>
+<p>3612636k cached — 缓冲的交换区总量（3.6GB）</p>
+<p>备注：</p>
+<p>第四行中使用中的内存总量（used）指的是现在系统内核控制的内存数，空闲内存总量（free）是内核还未纳入其管控范围的数量。纳入内核管理的内存不见得都在使用中，还包括过去使用过的现在可以被重复利用的内存，内核并不把这些可被重新使用的内存交还到free中去，因此在linux上free内存会越来越少，但不用为此担心。</p>
+<p>如果出于习惯去计算可用内存数，这里有个近似的计算公式：第四行的free + 第四行的buffers + 第五行的cached，按这个公式此台服务器的可用内存：18537836k +169884k +3612636k = 22GB左右。</p>
+<p>对于内存监控，在top里我们要时刻监控第五行swap交换分区的used，如果这个数值在不断的变化，说明内核在不断进行内存和swap的数据交换，这是真正的内存不够用了。</p>
+<p>第六行，空行。</p>
+<p>第七行以下：各进程（任务）的状态监控，项目列信息说明如下：</p>
+<p>PID — 进程id</p>
+<p>USER — 进程所有者</p>
+<p>PR — 进程优先级</p>
+<p>NI — nice值。负值表示高优先级，正值表示低优先级</p>
+<p>VIRT — 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</p>
+<p>RES — 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</p>
+<p>SHR — 共享内存大小，单位kb</p>
+<p>S — 进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程</p>
+<p>%CPU — 上次更新到现在的CPU时间占用百分比</p>
+<p>%MEM — 进程使用的物理内存百分比</p>
+<p>TIME+ — 进程使用的CPU时间总计，单位1/100秒</p>
+<p>COMMAND — 进程名称（命令名/命令行）</p>
+<p>其他使用技巧：</p>
+<p>1.多U多核CPU监控</p>
+<p>在top基本视图中，按键盘数字“1”，可监控每个逻辑CPU的状况：</p>
+<p>观察上图，服务器有16个逻辑CPU，实际上是4个物理CPU。再按数字键1，就会返回到top基本视图界面。</p>
+<p>2.高亮显示当前运行进程</p>
+<p>敲击键盘“b”（打开/关闭加亮效果），top的视图变化如下：</p>
+<p>我们发现进程id为2570的“top”进程被加亮了，top进程就是视图第二行显示的唯一的运行态（runing）的那个进程，可以通过敲击“y”键关闭或打开运行态进程的加亮效果。</p>
+<p>3.进程字段排序</p>
+<p>默认进入top时，各进程是按照CPU的占用量来排序的，在下图中进程ID为28894的java进程排在第一（cpu占用142%），进程ID为574的java进程排在第二（cpu占用16%）。</p>
+<p>敲击键盘“x”（打开/关闭排序列的加亮效果），top的视图变化如下：      </p>
+<p>可以看到，top默认的排序列是“%CPU”。</p>
+<p>4.通过”shift + &gt;”或”shift + &lt;”可以向右或左改变排序列</p>
 
       
       <!-- reward -->
@@ -212,15 +244,13 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shihoney.github.io/2020/05/09/linux-19/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shihoney.github.io/2020/05/15/linux-22/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
 
     </footer>
 
@@ -230,19 +260,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/15/linux-20/" class="article-nav-link">
+      <a href="/2020/05/15/linux-23/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            每日一条linux命令之ps命令
+            每日一条linux命令之free命令
           
         </div>
       </a>
     
     
-      <a href="/2020/05/08/linux-18/" class="article-nav-link">
+      <a href="/2020/05/15/linux-21/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">每日一条linux命令之locate命令</div>
+        <div class="article-nav-title">每日一条linux命令之kill命令</div>
       </a>
     
   </nav>
