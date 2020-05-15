@@ -45,12 +45,9 @@
       </tags>
   </entry>
   <entry>
-    <title>linux-22</title>
+    <title>每日一条linux命令之top命令</title>
     <url>/2020/05/15/linux-22/</url>
-    <content><![CDATA[<hr>
-<p>title: 每日一条linux命令之top命令<br>date: 2020-05-15 14:53:10<br>categories: linux<br>tags: linux</p>
-<hr>
-<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。<a id="more"></a></p>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。<a id="more"></a></p>
 <p>下面详细介绍它的使用方法。top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终</p>
 <p>止该程序为止.比较准确的说,top命令提供了实时的对系统处理器的状态监视.它将显示系统中CPU最“敏感”的任务列表.该命令可以按CPU使用.内</p>
 <p>存</p>
@@ -126,6 +123,12 @@
 <p>可以看到，top默认的排序列是“%CPU”。</p>
 <p>4.通过”shift + &gt;”或”shift + &lt;”可以向右或左改变排序列</p>
 ]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
   </entry>
   <entry>
     <title>每日一条linux命令之kill命令</title>
