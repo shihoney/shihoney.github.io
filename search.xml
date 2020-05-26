@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>每日一条linux命令之lsof命令</title>
+    <url>/2020/05/26/linux-24/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规</p>
+<p>数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件</p>
+<p>描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供</p>
+<p>了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。<a id="more"></a></p>
+<h4 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h4><p>lsof [参数] [文件]</p>
+<h4 id="命令功能"><a href="#命令功能" class="headerlink" title="命令功能"></a>命令功能</h4><p>用于查看你进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。找回/恢复删除的文件。是十分方便的系统监视工具，因为 lsof 需要访问核心内存和各种文件，所以需要root用户执行。</p>
+<p>lsof打开的文件可以是：</p>
+<p>1.普通文件</p>
+<p>2.目录</p>
+<p>3.网络文件系统的文件</p>
+<p>4.字符或设备文件</p>
+<p>5.(函数)共享库</p>
+<p>6.管道，命名管道</p>
+<p>7.符号链接</p>
+<p>8.网络文件（例如：NFS file、网络socket，unix域名socket）</p>
+<p>9.还有其它类型的文件。。。</p>
+<h4 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h4><p>-a 列出打开文件存在的进程</p>
+<p>-c&lt;进程名&gt; 列出指定进程所打开的文件</p>
+<p>-g  列出GID号进程详情</p>
+<p>-d&lt;文件号&gt; 列出占用该文件号的进程</p>
+<p>+d&lt;目录&gt;  列出目录下被打开的文件</p>
+<p>+D&lt;目录&gt;  递归列出目录下被打开的文件</p>
+<p>-n&lt;目录&gt;  列出使用NFS的文件</p>
+<p>-i&lt;条件&gt;  列出符合条件的进程。（4、6、协议、:端口、 @ip ）</p>
+<p>-p&lt;进程号&gt; 列出指定进程号所打开的文件</p>
+<p>-u  列出UID号进程详情</p>
+<p>-h 显示帮助信息</p>
+<p>-v 显示版本信息</p>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>lsof输出各列信息的意义如下：</p>
+<p>COMMAND：进程的名称</p>
+<p>PID：进程标识符</p>
+<p>PPID：父进程标识符（需要指定-R参数）</p>
+<p>USER：进程所有者</p>
+<p>PGID：进程所属组</p>
+<p>FD：文件描述符，应用程序通过文件描述符识别该文件。如cwd、txt等</p>
+<p>（1）cwd：表示current work dirctory，即：应用程序的当前工作目录，这是该应用程序启动的目录，除非它本身对这个目录进行更改</p>
+<p>（2）txt ：该类型的文件是程序代码，如应用程序二进制文件本身或共享库，如上列表中显示的 /sbin/init 程序</p>
+<p>（3）lnn：library references (AIX);</p>
+<p>（4）er：FD information error (see NAME column);</p>
+<p>（5）jld：jail directory (FreeBSD);</p>
+<p>（6）ltx：shared library text (code and data);</p>
+<p>（7）mxx ：hex memory-mapped type number xx.</p>
+<p>（8）m86：DOS Merge mapped file;</p>
+<p>（9）mem：memory-mapped file;</p>
+<p>（10）mmap：memory-mapped device;</p>
+<p>（11）pd：parent directory;</p>
+<p>（12）rtd：root directory;</p>
+<p>（13）tr：kernel trace file (OpenBSD);</p>
+<p>（14）v86  VP/ix mapped file;</p>
+<p>（15）0：表示标准输出</p>
+<p>（16）1：表示标准输入</p>
+<p>（17）2：表示标准错误</p>
+<p>一般在标准输出、标准错误、标准输入后还跟着文件状态模式：r、w、u等</p>
+<p>（1）u：表示该文件被打开并处于读取/写入模式</p>
+<p>（2）r：表示该文件被打开并处于只读模式</p>
+<p>（3）w：表示该文件被打开并处于</p>
+<p>（4）空格：表示该文件的状态模式为unknow，且没有锁定</p>
+<p>（5）-：表示该文件的状态模式为unknow，且被锁定</p>
+<p>同时在文件状态模式后面，还跟着相关的锁</p>
+<p>（1）N：for a Solaris NFS lock of unknown type;</p>
+<p>（2）r：for read lock on part of the file;</p>
+<p>（3）R：for a read lock on the entire file;</p>
+<p>（4）w：for a write lock on part of the file;（文件的部分写锁）</p>
+<p>（5）W：for a write lock on the entire file;（整个文件的写锁）</p>
+<p>（6）u：for a read and write lock of any length;</p>
+<p>（7）U：for a lock of unknown type;</p>
+<p>（8）x：for an SCO OpenServer Xenix lock on part      of the file;</p>
+<p>（9）X：for an SCO OpenServer Xenix lock on the      entire file;</p>
+<p>（10）space：if there is no lock.</p>
+<p>TYPE：文件类型，如DIR、REG等，常见的文件类型</p>
+<p>（1）DIR：表示目录</p>
+<p>（2）CHR：表示字符类型</p>
+<p>（3）BLK：块设备类型</p>
+<p>（4）UNIX： UNIX 域套接字</p>
+<p>（5）FIFO：先进先出 (FIFO) 队列</p>
+<p>（6）IPv4：网际协议 (IP) 套接字</p>
+<p>DEVICE：指定磁盘的名称</p>
+<p>SIZE：文件的大小</p>
+<p>NODE：索引节点（文件在磁盘上的标识）</p>
+<p>NAME：打开文件的确切名称</p>
+<p>实例1：通过某个进程号显示该进行打开的文件</p>
+<p>命令：</p>
+<p>lsof -p 1</p>
+<p>实例2：列出多个进程号对应的文件信息</p>
+<p>命令：</p>
+<p>lsof -p 1,2,3</p>
+<p>实例3：列出除了某个进程号，其他进程号所打开的文件信息</p>
+<p>命令：</p>
+<p>lsof -p ^1</p>
+<p>实例4：列出所有的网络连接</p>
+<p>命令：</p>
+<p>lsof -i</p>
+<p>实例5：列出所有tcp 网络连接信息</p>
+<p>命令：</p>
+<p>lsof -i tcp</p>
+<p>实例6：列出所有udp网络连接信息</p>
+<p>命令：</p>
+<p>lsof -i udp</p>
+<p>实例7：列出谁在使用某个端口</p>
+<p>命令：</p>
+<p>lsof -i :3306</p>
+<p>实例8：列出谁在使用某个特定的udp端口</p>
+<p>命令：</p>
+<p>lsof -i udp:55</p>
+<p>或者：特定的tcp端口</p>
+<p>命令：</p>
+<p>lsof -i tcp:80</p>
+<p>实例9：列出某个用户的所有活跃的网络端口</p>
+<p>命令：</p>
+<p>lsof -a -u test -i</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>每日一条linux命令之free命令</title>
     <url>/2020/05/15/linux-23/</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>free命令可以显示Linux系统中空闲的、已用的物理内存及swap内存,及被内核使用的buffer。在Linux系统监控的工具中，free命令是最经常使</p>
